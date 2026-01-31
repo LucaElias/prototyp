@@ -1,99 +1,1066 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pure Ring Rentals - Workspace</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background-color: #050505;
-            color: white;
-            font-family: 'Inter', sans-serif;
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description"
+        content="Experience the ultimate Nürburgring Nordschleife arrive & drive. Rent premium track-prepped BMW and Porsche machines for the Green Hell. Professional coaching and full support included.">
+    <title>Pure Ring Rentals | Conquer the Green Hell</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6a00ff",
+                        "accent-cyan": "#00E0FF",
+                        "accent-purple": "#5500FF",
+                        "background-light": "#F4F4F5",
+                        "background-dark": "#050505",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
         }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: #00E0FF;
-            transform: translateY(-5px);
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-nav {
+                background: rgba(5, 5, 5, 0.8);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .gradient-text {
+                background: linear-gradient(90deg, #00E0FF 0%, #5500FF 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .gradient-border {
+                position: relative;
+            }
+            .gradient-border::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                padding: 1px;
+                background: linear-gradient(135deg, #00E0FF, #5500FF);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                opacity: 0.3;
+                transition: opacity 0.3s ease;
+            }
+            .gradient-border:hover::after {
+                opacity: 1;
+            }
+            /* Basis-Strecke (Hintergrund): Farbig, aber transparent */
+            .track-base {
+                fill: none;
+                stroke: url(#trackGradient);
+                stroke-width: 10;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                opacity: 0.15;
+            }
+            /* Akzent-Strecke: Heller/Stärker sichtbar */
+            .track-accent {
+                fill: none;
+                stroke: url(#trackGradient);
+                stroke-width: 8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                opacity: 0.6;
+            }
+            /* Der weiße "Marker", der die Strecke abfährt */
+            .track-runner {
+                fill: none;
+                stroke: #ffffff;
+                stroke-width: 8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                /* Muster: 80px Strich, 3500px Lücke */
+                stroke-dasharray: 80, 3500; 
+                stroke-dashoffset: 3500;
+                filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+                animation: loopTrack 12s linear infinite;
+            }
+            @keyframes loopTrack {
+                0% { stroke-dashoffset: 3580; }
+                100% { stroke-dashoffset: 0; }
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            details summary::-webkit-details-marker {
+                display: none;
+            }
+            details[open] summary span.expand-icon {
+                transform: rotate(180deg);
+            }
         }
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col items-center justify-center p-8">
-    <div class="max-w-4xl w-full">
-        <h1 class="text-5xl font-black mb-12 text-center italic tracking-tighter">
-            <span class="text-[#00E0FF]">PURE</span> RING RENTALS
-        </h1>
+<body class="bg-background-dark text-white font-display antialiased selection:bg-accent-cyan selection:text-black">
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
+        <div class="max-w-[1440px] w-full mx-auto flex items-center justify-between px-8">
+            <a href="#" class="flex items-center gap-2 group transition-transform active:scale-95">
+                <span class="text-xl font-black italic tracking-tighter uppercase">Pure <span
+                        class="text-[#00E0FF]">Ring</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-[10px] font-black tracking-[0.2em] text-white transition-colors uppercase border-b-2 border-accent-cyan py-1"
+                    href="#">Home</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="fleet/variant_1.html">Fleet</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="#track">Track Info</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="#faq">FAQ</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="contact.html">Contact</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <!-- Lang Switcher (Visual only) -->
+                <div
+                    class="hidden md:block w-6 h-4 overflow-hidden rounded-sm border border-white/20 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                    <svg viewBox="0 0 60 30" class="w-full h-full">
+                        <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" />
+                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+                    </svg>
+                </div>
+                <button onclick="window.location.href='fleet/variant_1.html'"
+                    class="hidden lg:flex px-6 py-2.5 bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-accent-cyan transition-colors rounded-sm">
+                    View Fleet
+                </button>
+            </div>
+        </div>
+    </nav>
+    <section class="relative min-h-screen flex flex-col justify-center items-start pt-20 overflow-hidden" id="home">
+        <!-- Cinematic Background Effects -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- Brighter hero with subtle edge vignettes only -->
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark/30 via-transparent to-transparent z-10">
+            </div>
 
-        <div class="mb-12">
-            <h3 class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-6 border-b border-zinc-800 pb-2">
-                Main Landing Pages</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <a href="/pure_ring_rentals_landing_page_1/code.html" class="card p-6 rounded-xl block">
-                    <h2 class="text-xl font-bold mb-2">Variant 1</h2>
-                    <p class="text-zinc-400 text-sm mb-4">Initial landing page design for Pure Ring Rentals.</p>
-                    <div class="aspect-video bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
-                        <img src="/pure_ring_rentals_landing_page_1/screen.png" alt="Variant 1"
-                            class="w-full h-full object-cover">
+            <div class="w-full h-full bg-cover bg-center scale-90"
+                style='background-image: url("images/hero_new.png");'>
+            </div>
+        </div>
+
+        <div class="relative z-20 px-6 md:px-20 w-full">
+            <div class="max-w-4xl">
+                <div class="flex items-center gap-3 mb-8">
+                    <span
+                        class="px-6 py-2 border border-accent-cyan text-accent-cyan text-xs font-black tracking-[0.2em] uppercase rounded-full bg-background-dark/20 backdrop-blur-sm shadow-[0_0_15px_rgba(0,224,255,0.1)]">
+                        Season Open 2026
+                    </span>
+                </div>
+                <h1
+                    class="text-white text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter uppercase mb-8 italic">
+                    EXPERIENCE<br />
+                    <span class="gradient-text">PURE.</span>
+                </h1>
+                <p class="text-zinc-300 text-lg md:text-xl font-light leading-relaxed max-w-xl mb-12 drop-shadow-md">
+                    Engineered for precision. Built for the Nordschleife. Premium arrive &amp; drive track tools at your
+                    command.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5 mb-24">
+                    <button
+                        class="px-10 py-4 bg-white text-black text-sm font-black uppercase tracking-widest hover:bg-accent-cyan transition-all transform hover:-translate-y-1 rounded-sm shadow-xl shadow-cyan-500/10">
+                        Rent Your Lap
+                    </button>
+                    <button onclick="window.location.href='fleet/variant_1.html'"
+                        class="px-10 py-4 border border-white/20 bg-background-dark/40 backdrop-blur-md text-white text-sm font-black uppercase tracking-widest hover:border-white transition-all transform hover:-translate-y-1 rounded-sm">
+                        View Fleet
+                    </button>
+                </div>
+            </div>
+
+            <!-- Track Stats Row -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 pt-12 border-t border-white/10 max-w-4xl">
+                <div>
+                    <span class="block text-3xl font-black italic tracking-tighter">20.8 <span
+                            class="text-accent-cyan text-lg not-italic">KM</span></span>
+                    <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Track Length</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-black italic tracking-tighter">73</span>
+                    <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Challenging
+                        Turns</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-black italic tracking-tighter">300 <span
+                            class="text-accent-cyan text-lg not-italic">M</span></span>
+                    <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Elevation Gain</span>
+                </div>
+                <div>
+                    <span class="block text-3xl font-black italic tracking-tighter">1:1</span>
+                    <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Expert Coaching</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-white border-y border-zinc-200 overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="flex items-center gap-6 mb-12">
+                <div class="flex items-center gap-3">
+                    <div class="size-10 flex items-center justify-center bg-zinc-100 rounded-lg p-2">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                fill="#4285F4" />
+                            <path
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                fill="#34A853" />
+                            <path
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                                fill="#FBBC05" />
+                            <path
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                fill="#EA4335" />
+                        </svg>
                     </div>
-                </a>
+                    <div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-xl font-bold text-zinc-900">4.9</span>
+                            <div class="flex items-center">
+                                <span class="material-symbols-outlined text-yellow-500 fill-1 text-sm">star</span>
+                                <span class="material-symbols-outlined text-yellow-500 fill-1 text-sm">star</span>
+                                <span class="material-symbols-outlined text-yellow-500 fill-1 text-sm">star</span>
+                                <span class="material-symbols-outlined text-yellow-500 fill-1 text-sm">star</span>
+                                <span class="material-symbols-outlined text-yellow-500 fill-1 text-sm">star</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Google Reviews</p>
+                    </div>
+                </div>
+                <div class="h-8 w-[1px] bg-zinc-200"></div>
+                <span class="text-sm font-medium text-zinc-600">Based on 150+ track experiences</span>
+            </div>
+            <div class="flex gap-6 overflow-x-auto no-scrollbar pb-4">
+                <div class="min-w-[320px] md:min-w-[400px] bg-white p-8 rounded-sm border border-zinc-200 shadow-sm">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 bg-zinc-100 rounded-full flex items-center justify-center font-bold text-accent-cyan">
+                                MK</div>
+                            <div>
+                                <h4 class="text-sm font-bold uppercase text-background-dark">Markus K.</h4>
+                                <p class="text-[10px] text-zinc-500 uppercase tracking-tighter">October 2023</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-1.5 px-2 py-1 bg-zinc-50 text-[9px] font-bold uppercase tracking-widest text-green-600 rounded-sm border border-green-100">
+                            <span class="material-symbols-outlined text-[12px] fill-1">verified</span>
+                            <span>Verified</span>
+                        </div>
+                    </div>
+                    <p class="text-zinc-600 text-sm italic">"The BMW M2 was perfectly prepped. Best track rental
+                        experience I've had in 10 years of visiting the Ring. Pure Ring team knows their stuff."</p>
+                </div>
+                <div class="min-w-[320px] md:min-w-[400px] bg-white p-8 rounded-sm border border-zinc-200 shadow-sm">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 bg-zinc-100 rounded-full flex items-center justify-center font-bold text-accent-purple">
+                                SH</div>
+                            <div>
+                                <h4 class="text-sm font-bold uppercase text-background-dark">Sarah H.</h4>
+                                <p class="text-[10px] text-zinc-500 uppercase tracking-tighter">September 2023</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-1.5 px-2 py-1 bg-zinc-50 text-[9px] font-bold uppercase tracking-widest text-green-600 rounded-sm border border-green-100">
+                            <span class="material-symbols-outlined text-[12px] fill-1">verified</span>
+                            <span>Verified</span>
+                        </div>
+                    </div>
+                    <p class="text-zinc-600 text-sm italic">"Instruction was top-notch. Took minutes off my lap time.
+                        The Porsche GT3 RS is a masterpiece on this track."</p>
+                </div>
+                <div class="min-w-[320px] md:min-w-[400px] bg-white p-8 rounded-sm border border-zinc-200 shadow-sm">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 bg-zinc-100 rounded-full flex items-center justify-center font-bold text-accent-cyan">
+                                JL</div>
+                            <div>
+                                <h4 class="text-sm font-bold uppercase text-background-dark">James L.</h4>
+                                <p class="text-[10px] text-zinc-500 uppercase tracking-tighter">August 2023</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-1.5 px-2 py-1 bg-zinc-50 text-[9px] font-bold uppercase tracking-widest text-green-600 rounded-sm border border-green-100">
+                            <span class="material-symbols-outlined text-[12px] fill-1">verified</span>
+                            <span>Verified</span>
+                        </div>
+                    </div>
+                    <p class="text-zinc-600 text-sm italic">"Everything was seamless. Arrived, briefed, and was on
+                        track. The team's passion for the Nürburgring is infectious."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 px-6 bg-background-dark overflow-hidden" id="track">
+        <div class="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="order-2 lg:order-1">
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 italic">The Ultimate
+                    <br /><span class="text-accent-cyan">Circuit</span>
+                </h2>
+                <div class="space-y-4">
+                    <div class="space-y-4">
+                        <!-- Top Card: Brightest Cyan -->
+                        <div
+                            class="relative p-6 bg-zinc-900/40 border border-accent-cyan/60 rounded-sm overflow-hidden shadow-[0_0_20px_rgba(0,224,255,0.05)]">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent-cyan/10 to-transparent"></div>
+                            <div class="flex items-start gap-6 relative z-10">
+                                <span
+                                    class="material-symbols-outlined text-4xl text-accent-cyan drop-shadow-[0_0_10px_rgba(0,224,255,0.4)]">map</span>
+                                <div>
+                                    <h4
+                                        class="text-accent-cyan font-black uppercase tracking-widest text-sm mb-2 drop-shadow-[0_0_8px_rgba(0,224,255,0.3)]">
+                                        Nordschleife</h4>
+                                    <p class="text-zinc-100 text-base leading-relaxed font-light">The longest, most
+                                        challenging track in the world. 20.8 kilometers of pure adrenaline and technical
+                                        complexity.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                <a href="/pure_ring_rentals_landing_page_2/code.html" class="card p-6 rounded-xl block">
-                    <h2 class="text-xl font-bold mb-2">Variant 2</h2>
-                    <p class="text-zinc-400 text-sm mb-4">Improved landing page design with more sections and details.
+                        <!-- Middle Card: Slightly deeper/dimmer Cyan-Blue -->
+                        <div class="relative p-6 bg-zinc-900/40 border border-[#4d88ff]/50 rounded-sm overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#4d88ff]/10 to-transparent"></div>
+                            <div class="flex items-start gap-6 relative z-10">
+                                <span class="material-symbols-outlined text-4xl text-[#4d88ff]">mountain_flag</span>
+                                <div>
+                                    <h4 class="text-[#4d88ff] font-black uppercase tracking-widest text-sm mb-2">300m
+                                        Elevation</h4>
+                                    <p class="text-zinc-200 text-base leading-relaxed font-light">Significant
+                                        verticality creates "compression" points and "blind crests" that test even the
+                                        most experienced drivers.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Card: Bright Purple -->
+                        <div
+                            class="relative p-6 bg-zinc-900/40 border border-accent-purple/50 rounded-sm overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-accent-purple/10 to-transparent"></div>
+                            <div class="flex items-start gap-6 relative z-10">
+                                <span class="material-symbols-outlined text-4xl text-accent-purple">timer</span>
+                                <div>
+                                    <h4 class="text-accent-purple font-black uppercase tracking-widest text-sm mb-2">
+                                        Sub-8 Challenge</h4>
+                                    <p class="text-zinc-200 text-base leading-relaxed font-light">Join the elite few who
+                                        have mastered the track under 8 minutes. Our fleet is prepped for maximum
+                                        performance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 flex justify-center relative">
+                <div class="relative w-full max-w-[600px] flex items-center justify-center p-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 774 809"
+                        class="w-full h-full drop-shadow-[0_0_50px_rgba(0,224,255,0.3)]">
+                        <defs>
+                            <linearGradient id="trackGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color: #00E0FF; stop-opacity: 1" />
+                                <stop offset="100%" style="stop-color: #5500FF; stop-opacity: 1" />
+                            </linearGradient>
+                            <path id="nurburgring-path"
+                                d="M213.85,685.23l57.85-60.81c4.23-3.91,5.95-8.56,17.53-9.97c4.31-.54,6.84.61,11.09-2.4c3.51-2.51,3.15-9.19,4.37-12.72c1.05-3.05,10.53-9.75,13.31-13.73c4.49-6.41,21.52-34.51,41.24-49.42c8.21-6.2,38.62-24.16,57.78-36.18l104.4-64.78c21.17-12.72,53.43-31.03,62.63-38.48c3.96-3.18,8.24-7.57,8.59-12.87c.65-9.7-3.15-15.43-5.73-19.45c-7.86-12.3-37.46-11.29-38.9-27.17c-.45-4.99,5.52-7.83,11.45-12.02c3.48-2.46,7.36-4.66,11.44-4.71c9.73-.14,13.04,12.14,22.89,11.44c14.95-1.07,29.71-7.76,45.33-11.86c5.76-1.53,8.88-5.3,12.29-7.59c3.61-2.4,7.94-3.99,10.74-7.29c3.15-3.72,5.44-6.15,8.14-12.02c3.15-6.76,4.01-10.07,9.02-15.59c5.15-5.68,8.43-10.05,14.01-14.01c5.22-3.71,11.15-3.15,17.45-6.3c3.8-1.89,6.2-6.63,6.58-10.86c.72-7.87-.14-19.02-.14-27.74c0-5.89,3.53-16.43,11.01-25.89c6.44-8.14,4.71-14.85,9.88-16.3c9.69-2.72,21.3,4.29,29.89-.29c4.29-2.29,4.42-9.29,4.15-14.59c-.3-5.42-.3-13.31-5.15-15.73c-7.06-3.53-8.91-1.99-15.16-7.44c-7.09-6.17,4.79-25,4.57-31.89c-.13-4.18-10.86-19.6-14.3-21.17c-4.88-2.24-7.29-2.29-13.15-4.99c-5.07-2.35-7.71-8.8-13.15-12.17c-2.28-1.4-33.05-11.74-38.91-7.71c-6.74,4.63-8.14,10.05-9.57,15.3c-1.73,6.3,5.44,8.16-2.2,19.1c-5.93,8.49-13.39,18.04-20.72,18.9c-10.16,1.18-12.68,2.53-16.46,3.86c-8.67,3.05-13.44,5.58-18.02,8.86c-3.99,2.86-6.01,4.52-6.71,7.16c-.95,3.53-8.32,7.01-13.2,2.18c-2.1-2.07-3.9-9.97,5.52-12.3c3.9-.95,17.45-11.86,25.45-17.88c3.45-2.58,7.08-7.73,2.15-12.29c-1.92-1.78-5.46-1.72-12.44,1.15c-7.89,3.23-13.73,1.72-25.61,4.29c-7.94,1.72-13.58,9.58-19.74,14.73c-7.29,6.11-16.92,12.44-23.73,13.44c-8.64,1.26-16.16-1.72-26.61-8.16c-5.65-3.48-8.86-7.29-14.73-11.29c-7.65-5.23-16.97-7.56-26.02-9.58c-14.01-3.15-27.96-3.05-46.35-3.29c-9.72-.13-15.3-3.29-22.3-6.58c-9.3-4.36-17.42-9.3-25.03-17.59c-3.85-4.2-9.43-15.01-9.29-34.32c.06-8.6,2.35-17.89.86-27.31c-.84-5.23-5.11-7.59-9.59-7.87c-8.51-.54-17.24,13.19-28.17,17.45c-9.57,3.74-16.24.32-34.75,6.3c-19.52,6.3-21.06,8.45-24.18,12.44c-3.04,3.91-1.67,11.87-2.86,17.3c-.51,2.39-2.75,7.49-8.86,8.45c-4.71.73-10.1-2-14.73-3.15c-9.89-2.56-23.22-2.04-33.04,2.72c-6.24,3.01-3.2,6.9-9.16,7.14c-4.49.18-3.71-6.14-5.85-8.14c-7.87-7.3-14.6-11.45-22.75-15.16c-7.9-3.61-14.44-1.29-19.02,3.13c-3.2,3.1-5.63,7.57-6.73,10.31c-1.94,4.85-.19,9.4-3.71,13.01c-6.27,6.41-15.19,11.4-21.31,14.16c-2.77,1.24-5.01,2.58-4.72,6.3c.24,2.99,2.35,6.44,7.3,10.29c4.01,3.13,6.57,4.44,10.86,6.15c2.48.99,6.16-.13,8.45.72c2.7,1,4.36,2.29,5.28,4.44c2.86,6.57,6.68,13.93,5.01,22.16c-1.29,6.33-4.44,10.88-8.88,15.87c-10.61,11.99-11.31,10.45-21.15,21.03c-5.15,5.54-4.44,6.65-9.73,11.31c-6.6,5.81-15.78,10.56-17.16,14.16c-2.26,5.85,2.58,10.58,1.72,14.58c-.92,4.34-7.49,5.36-9.15,11.15c-1.38,4.85.57,12.72-1.57,21.74c-1.48,6.17-3.34,10.56-6.01,15.87c-4.76,9.46-9.89,13.11-15.87,18.88c-8.57,8.29-16.4,13.61-25.16,21.31c-7.08,6.2-12.63,9.59-25.18,15.44c-10.34,4.8-19.1,5.25-20.31,11.44c-.6,3.12.86,6.73,4.01,8.3c6.23,3.12,13.01,5.85,18.59,9.15c4.96,2.93,9.3,7.21,12.29,12.72c7.98,14.71,14.82,29.71,20.88,44.92c2.62,6.6,5.03,11.4,6.01,18.45c2.42,17.45,1.67,22.3,1.56,32.89c-.14,15.44-7.86,26.32-9.43,39.91c-.72,6.14,1.72,11.44,4.29,15.02c3.74,5.18,7.78,9.22,12.44,14.44c4.66,5.22,5.15,6.42,16.73,18.59c9.75,8.19,26.85,18.32,30.17,23.44c3.39,5.22,2.94,11.98,8.02,13.74c6.58,2.27,16.38,2.12,18.66,3.85c3.23,2.47,2.69,3.75,4.09,6.16c2.08,3.59,5.95,5.5,8.29,8.57c3.21,4.23,4.61,6.76,7.94,10.31c2.16,2.29,4.87,3.95,7.79,3.58c2.29-.29,1.83-.49,4.72-1.86c3.6-1.7,14.9-1.21,21.36.84c9.42,2.99,12.01,7.03,19.98,7.05c7.65.02,13.87-4.31,19.74-9.53c2.97-2.64,5.01-5.41,6.98-8.96c3.59-6.44,6.85-6.66,9.51-6.49c5.69.38,5.22,2.86,7.46,5.66c1.19,1.49,1.49,2.31,1.72,4.2c.92,7.78-5.36,13.92-13.46,14.92c-4.36.54-3.71,10.43-10.46,12.09c-20.45,5.03-56.02,11.01-61.17,14.09c-5.77,3.44-37.58,36.49-35.18,41.54c3.24,6.86,21.38,9.49,20.68,16.91c-.73,7.68-13.19,37.65-14.32,48.7c-.52,5.09,2.99,10.18,2.18,14.92c-.79,4.63-12.87,17.89-22.46,26.83c-4.84,4.52-7.09,8.43-3.18,11.53c5.61,4.47,9.94-.57,14.31-6.95c5.17-7.57,15.64-16.76,23.46-22.87c6.82-5.31,24.32-10.07,19.67-16.89c-2.74-4.02-14.39-5.07-16.7-11.34c-2.15-5.85,6.3-25.91,9.35-38.36c1.7-6.98,2.74-21.12,13.77-11.2c2.96,2.64,5.65-.88,22.41-13.46Z" />
+                        </defs>
+                        <use href="#nurburgring-path" class="track-base" />
+                        <use href="#nurburgring-path" class="track-accent" />
+                        <use href="#nurburgring-path" class="track-runner" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 px-6 bg-background-light text-background-dark" id="fleet">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 italic">Precision <span
+                            class="gradient-text">Tools</span></h2>
+                    <p class="text-zinc-600 max-w-lg font-medium">Every machine in our fleet is track-optimized with
+                        Bilstein
+                        suspension, Endless brake pads, and Michelin Pilot Sport Cup 2 tires.</p>
+                </div>
+                <div class="flex gap-4">
+                    <button
+                        class="size-12 border border-zinc-200 flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                        class="size-12 border border-zinc-200 flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div
+                    class="group relative bg-white overflow-hidden rounded-sm border border-zinc-100 shadow-xl shadow-zinc-200/50">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
+                            style='background-image: url("images/blue_m2.png");'>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight italic">BMW M2 Comp</h3>
+                                <p class="text-accent-cyan text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
+                                    Nordschleife Spec</p>
+                            </div>
+                            <span class="text-zinc-300 font-mono text-sm">#01</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">Power</span>
+                                <span class="text-background-dark font-bold">410 HP</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">0-100</span>
+                                <span class="text-background-dark font-bold">4.2s</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">Torque</span>
+                                <span class="text-background-dark font-bold">550 NM</span>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='fleet/detail_view_template.html'"
+                            class="w-full py-4 border border-zinc-900 text-xs font-black uppercase tracking-[0.2em] bg-zinc-900 text-white hover:bg-accent-cyan hover:border-accent-cyan transition-all">
+                            Select Machine
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="group relative bg-white overflow-hidden rounded-sm border border-zinc-100 shadow-xl shadow-zinc-200/50">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
+                            style='background-image: url("images/cayman_gt4.png");'>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight italic">Porsche Cayman GT4</h3>
+                                <p class="text-accent-purple text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
+                                    Mid-Engine Balance</p>
+                            </div>
+                            <span class="text-zinc-300 font-mono text-sm">#02</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">Power</span>
+                                <span class="text-background-dark font-bold">420 HP</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">0-100</span>
+                                <span class="text-background-dark font-bold">4.4s</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">Torque</span>
+                                <span class="text-background-dark font-bold">420 NM</span>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='fleet/detail_view_template.html'"
+                            class="w-full py-4 border border-zinc-900 text-xs font-black uppercase tracking-[0.2em] bg-zinc-900 text-white hover:bg-accent-purple hover:border-accent-purple transition-all">
+                            Select Machine
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="group relative bg-white overflow-hidden rounded-sm border border-zinc-100 shadow-xl shadow-zinc-200/50">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <div class="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
+                            style='background-image: url("images/bmw_120.png");'>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight italic">BMW 120 Touring</h3>
+                                <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
+                                    Lightweight Track Spec</p>
+                            </div>
+                            <span class="text-zinc-300 font-mono text-sm">#03</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">Power</span>
+                                <span class="text-background-dark font-bold">350 HP</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">0-100</span>
+                                <span class="text-background-dark font-bold">4.8s</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-zinc-400 uppercase tracking-widest mb-1">Weight</span>
+                                <span class="text-background-dark font-bold">1200 KG</span>
+                            </div>
+                        </div>
+                        <button onclick="window.location.href='fleet/detail_view_template.html'"
+                            class="w-full py-4 border border-zinc-900 text-xs font-black uppercase tracking-[0.2em] bg-zinc-900 text-white hover:bg-zinc-800 transition-all">
+                            Select Machine
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arrive & Drive Section (Dark Mode) -->
+    <section class="py-20 px-6 bg-background-dark text-white border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto text-center mb-16">
+            <h2 class="text-5xl md:text-6xl font-black uppercase tracking-normal italic mb-6">Arrive &amp; <span
+                    class="gradient-text">Drive</span></h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-lg">We handle the logistics, maintenance, and track fees. You
+                focus
+                on the apex. Our seamless process gets you on track in minutes.</p>
+        </div>
+        <div class="max-w-[1300px] mx-auto grid md:grid-cols-3 gap-16 relative">
+            <div class="hidden md:block absolute top-1/2 left-0 right-0 h-[1px] bg-white/10 -translate-y-12 z-0"></div>
+            <div class="relative z-10 flex flex-col items-center group transition-transform hover:-translate-y-4">
+                <div
+                    class="size-32 rounded-full bg-zinc-900 border-8 border-background-dark flex items-center justify-center mb-10 shadow-2xl group-hover:border-accent-cyan transition-all">
+                    <span class="material-symbols-outlined text-5xl group-hover:text-accent-cyan">calendar_month</span>
+                </div>
+                <h3 class="text-3xl font-black uppercase tracking-widest mb-4 italic">01. Book</h3>
+                <p class="text-zinc-400 text-lg leading-relaxed text-center font-medium max-w-[280px]">Select your
+                    machine and session. Immediate digital track clearance.</p>
+            </div>
+            <div class="relative z-10 flex flex-col items-center group transition-transform hover:-translate-y-4">
+                <div
+                    class="size-32 rounded-full bg-zinc-900 border-8 border-background-dark flex items-center justify-center mb-10 shadow-2xl group-hover:border-accent-purple transition-all">
+                    <span class="material-symbols-outlined text-5xl group-hover:text-accent-purple">assignment</span>
+                </div>
+                <h3 class="text-3xl font-black uppercase tracking-widest mb-4 italic">02. Briefing</h3>
+                <p class="text-zinc-400 text-lg leading-relaxed text-center font-medium max-w-[280px]">Pro instructors
+                    guide you through the Green Hell's safety protocols.</p>
+            </div>
+            <div class="relative z-10 flex flex-col items-center group transition-transform hover:-translate-y-4">
+                <div
+                    class="size-32 rounded-full bg-zinc-900 border-8 border-background-dark flex items-center justify-center mb-10 shadow-2xl group-hover:border-accent-cyan transition-all">
+                    <span class="material-symbols-outlined text-5xl group-hover:text-accent-cyan">tire_repair</span>
+                </div>
+                <h3 class="text-3xl font-black uppercase tracking-widest mb-4 italic">03. Conquer</h3>
+                <p class="text-zinc-400 text-lg leading-relaxed text-center font-medium max-w-[280px]">Take the keys.
+                    The Nordschleife belongs to you now.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Visionary Quote Section (Light Mode) -->
+    <section class="py-20 px-6 bg-white text-background-dark relative overflow-hidden" id="about">
+        <!-- Background Decorative Text -->
+        <div
+            class="absolute bottom-0 left-0 right-0 select-none pointer-events-none z-0 translate-y-1/4 opacity-[0.05]">
+            <h2 class="text-[20vw] font-black uppercase tracking-tighter text-zinc-200 whitespace-nowrap leading-none">
+                THE VISION THE VISION
+            </h2>
+        </div>
+
+        <div class="max-w-[1400px] mx-auto relative z-10">
+            <div class="flex flex-col items-center text-center">
+                <h2 class="text-2xl md:text-5xl font-black uppercase leading-tight italic max-w-4xl mb-12">
+                    "I don't just build track tools. I live for the <span class="gradient-text">perfect lap.</span>"
+                </h2>
+                <div class="flex flex-col items-center">
+                    <span class="w-12 h-[2px] bg-accent-cyan mb-4"></span>
+                    <span class="text-xl font-black uppercase italic tracking-tighter">Olli</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 mt-1">Founder Pure Ring
+                        Rentals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section (Dark Mode) -->
+    <section class="py-32 px-6 bg-background-dark text-white overflow-hidden">
+        <div class="max-w-[1300px] mx-auto relative z-10">
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative group order-2 lg:order-1 flex justify-center lg:justify-end">
+                    <div
+                        class="relative w-full max-w-md aspect-square overflow-hidden rounded-sm border border-white/5">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent z-10">
+                        </div>
+                        <img src="images/olli.png" alt="Olli - Founder of Pure Ring Rentals"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale hover:grayscale-0">
+                    </div>
+                </div>
+
+                <div class="space-y-8 order-1 lg:order-2">
+                    <div>
+                        <h2 class="text-5xl md:text-6xl font-black uppercase italic tracking-normal mb-4">
+                            Hello, I'm <span class="gradient-text">Olli</span>
+                        </h2>
+                        <p class="text-accent-cyan text-sm font-bold uppercase tracking-[0.2em]">Founder & Vehicle
+                            Engineer</p>
+                    </div>
+
+                    <div class="space-y-6 text-zinc-400 text-lg md:text-xl font-light leading-relaxed">
+                        <p>
+                            Born into a family where the scent of petrol was second nature, I've spent my career
+                            perfecting the balance between mechanical power and track precision. With a degree in <span
+                                class="text-white font-medium">Vehicle Engineering</span>, Pure Ring Rentals is my
+                            mission to provide an
+                            engineering masterpiece for the Green Hell.
+                        </p>
+                    </div>
+
+                    <div class="pt-8 grid grid-cols-2 gap-8 border-t border-white/10">
+                        <div>
+                            <span class="block text-white font-bold text-3xl">B.Eng.</span>
+                            <span class="text-[10px] text-zinc-500 uppercase tracking-widest">Engineering Degree</span>
+                        </div>
+                        <div>
+                            <span class="block text-white font-bold text-3xl">5K+</span>
+                            <span class="text-[10px] text-zinc-500 uppercase tracking-widest">Nordschleife Laps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-32 px-6 bg-white text-background-dark" id="faq">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col items-center text-center mb-20">
+                <span class="inline-block text-accent-cyan text-xs font-black tracking-[0.4em] uppercase mb-4">Support
+                    Center</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">Frequently Asked
+                    <span class="gradient-text">Questions</span>
+                </h2>
+                <p class="text-zinc-500 max-w-2xl font-medium">Everything you need to know about renting a track tool
+                    for the Nürburgring Nordschleife. Professional prep, zero hassle.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+
+                <!-- LEFT COLUMN: FAQ Content -->
+                <div class="lg:col-span-2">
+
+                    <!-- Category Tabs -->
+                    <div class="flex flex-wrap gap-8 border-b border-zinc-200 mb-8">
+                        <button onclick="setFaqTab('booking', this)"
+                            class="pb-4 text-sm font-black uppercase tracking-widest text-accent-cyan border-b-2 border-accent-cyan transition-all hover:text-accent-cyan">
+                            Booking & Payment
+                        </button>
+                        <button onclick="setFaqTab('driving', this)"
+                            class="pb-4 text-sm font-black uppercase tracking-widest text-zinc-400 border-b-2 border-transparent hover:text-zinc-800 transition-all">
+                            Driving Rules
+                        </button>
+                        <button onclick="setFaqTab('insurance', this)"
+                            class="pb-4 text-sm font-black uppercase tracking-widest text-zinc-400 border-b-2 border-transparent hover:text-zinc-800 transition-all">
+                            Insurance
+                        </button>
+                    </div>
+
+                    <!-- BOOKING CONTENT -->
+                    <div id="faq-booking" class="space-y-4 animate-fade-in">
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">How do I book a
+                                    track session?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                You can book directly through our online fleet portal. Select your car, choose the date
+                                (Touristenfahrten or Trackday), and complete the security deposit. Our team will confirm
+                                the slot within 2 hours.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">What is the
+                                    cancellation policy?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Cancellations made 7 days prior to the event are eligible for a full refund. Within 48
+                                hours, we offer a 50% credit for future bookings. In case of track closure due to
+                                weather, we reschedule at no extra cost.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Can i rent a car
+                                    without a booking?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                While we recommend booking in advance to guarantee availability, walk-ins are welcome
+                                subject to car availability on the day.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Is it necessary
+                                    to pay a deposit?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Yes, a security deposit is required for all rentals to cover the insurance excess. This
+                                amount is pre-authorized on your credit card and released after the rental, provided
+                                there are no damages.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Can i share a car
+                                    with my friend?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Yes, additional drivers can be added to the rental agreement for a small fee, provided
+                                they meet the age and license requirements.
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- DRIVING CONTENT -->
+                    <div id="faq-driving" class="space-y-4 hidden animate-fade-in">
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Do i need an
+                                    instructor?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                While not mandatory for experienced drivers, we strongly recommend booking an instructor
+                                for your first laps to learn the track safely and maximize your experience.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">What rules apply
+                                    on the track?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                During Touristenfahrten sessions, normal German road traffic laws (StVO) apply. This
+                                includes a strict "overtake on the left only" rule. Drifting and timing/racing are
+                                strictly prohibited.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Can I drive with
+                                    no experience?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Yes, beginners are welcome! We advise starting with a slower car or an instructor
+                                session to get accustomed to the track layout and traffic.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Can i take
+                                    passengers?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Yes, passengers are allowed (must be at least 12 years old generally). Each passenger
+                                needs their own lap ticket, unless you have a season card that covers passengers.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Will the track
+                                    open if it rains?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Yes, the track usually remains open in rain, but may close for extreme weather like fog,
+                                ice, or snow. Drive carefully and within your limits in wet conditions!
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- INSURANCE CONTENT -->
+                    <div id="faq-insurance" class="space-y-4 hidden animate-fade-in">
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Is insurance
+                                    included?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                Yes, basic insurance is included, but there is an excess (deductible) that you are
+                                liable for in case of an accident. The excess amount depends on the vehicle category.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">Why are excess
+                                    levels so high?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                The excess reflects the high risk associated with driving on a race track. Accidents can
+                                be costly, involving not just car damage but also track barriers and recovery fees.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">What happens if i
+                                    crash?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                You are liable for damages up to the maximum excess amount agreed upon. Any costs
+                                exceeding the excess are covered by our insurance. You must also pay for track damages
+                                (barriers) and recovery.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden transition-all duration-300">
+                            <summary
+                                class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-zinc-100 transition-colors">
+                                <span class="font-bold uppercase tracking-tight text-sm text-zinc-900">What if the car
+                                    breaks down?</span>
+                                <span
+                                    class="material-symbols-outlined expand-icon transition-transform duration-300 text-zinc-400 group-open:rotate-180 group-open:text-accent-cyan">expand_more</span>
+                            </summary>
+                            <div
+                                class="px-6 pb-6 text-zinc-600 text-base leading-relaxed border-t border-zinc-100 pt-4">
+                                If the breakdown is due to a mechanical failure of the car (not driver error), we will
+                                provide a replacement vehicle or refund your unused laps. We maintain our fleet to the
+                                highest standards to minimize this risk.
+                            </div>
+                        </details>
+                    </div>
+
+                    <script>
+                        function setFaqTab(tabId, btn) {
+                            // 1. Hide all content
+                            ['booking', 'driving', 'insurance'].forEach(id => {
+                                document.getElementById('faq-' + id).classList.add('hidden');
+                            });
+                            // 2. Show selected content
+                            document.getElementById('faq-' + tabId).classList.remove('hidden');
+
+                            // 3. Reset all buttons
+                            const parent = btn.parentElement;
+                            Array.from(parent.children).forEach(child => {
+                                child.className = 'pb-4 text-sm font-black uppercase tracking-widest text-zinc-400 border-b-2 border-transparent hover:text-zinc-800 transition-all';
+                            });
+
+                            // 4. Set active button
+                            btn.className = 'pb-4 text-sm font-black uppercase tracking-widest text-accent-cyan border-b-2 border-accent-cyan transition-all hover:text-accent-cyan';
+                        }
+                    </script>
+
+                </div>
+
+                <!-- RIGHT COLUMN: Sidebar -->
+                <aside class="sticky top-32">
+                    <div class="bg-background-dark p-8 text-white rounded-sm shadow-2xl relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-accent-cyan/10 blur-3xl -mr-16 -mt-16 group-hover:bg-accent-cyan/20 transition-colors">
+                        </div>
+                        <h4 class="text-2xl font-black uppercase italic tracking-tight mb-4">Need Help?</h4>
+                        <p class="text-zinc-500 text-sm mb-8 leading-relaxed">Our track support team is available 24/7
+                            to assist with technical queries or urgent booking changes.</p>
+                        <div class="space-y-4">
+                            <a class="flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-accent-cyan transition-colors rounded-sm group/item"
+                                href="#">
+                                <span class="material-symbols-outlined text-accent-cyan">chat</span>
+                                <div>
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500">WhatsApp
+                                    </p>
+                                    <p class="text-sm font-bold">+49 123 456 7890</p>
+                                </div>
+                            </a>
+                            <a class="flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-accent-purple transition-colors rounded-sm group/item"
+                                href="mailto:support@purering.com">
+                                <span class="material-symbols-outlined text-accent-purple">mail</span>
+                                <div>
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Email
+                                        Support</p>
+                                    <p class="text-sm font-bold">support@purering.com</p>
+                                </div>
+                            </a>
+                            <button
+                                class="w-full mt-4 py-4 bg-white text-black text-xs font-black uppercase tracking-[0.2em] hover:bg-accent-cyan transition-colors">
+                                Contact Form
+                            </button>
+                        </div>
+                        <div class="mt-12 pt-8 border-t border-white/10">
+                            <div class="flex items-center gap-4">
+                                <div class="size-10 rounded-full bg-accent-cyan/10 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-accent-cyan text-xl">location_on</span>
+                                </div>
+                                <div class="text-[11px] leading-tight text-left">
+                                    <p class="font-bold text-white uppercase mb-1">Paddock Office</p>
+                                    <p class="text-zinc-500 uppercase tracking-tighter">Hauptstraße 1, 53520 Nürburg</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+    </section>
+    <footer class="bg-[#050505] border-t border-zinc-900 pt-24 pb-12 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div
+                            class="size-8 flex items-center justify-center bg-gradient-to-br from-accent-cyan to-accent-purple rounded-sm p-[1.5px]">
+                            <div class="bg-background-dark w-full h-full flex items-center justify-center rounded-sm">
+                                <span class="material-symbols-outlined text-white text-xl">speed</span>
+                            </div>
+                        </div>
+                        <h2 class="text-white text-lg font-bold tracking-tighter uppercase italic"><span
+                                class="text-accent-cyan">Pure</span> Ring</h2>
+                    </div>
+                    <p class="text-zinc-500 text-sm max-w-xs leading-relaxed mb-8 italic">"If you're not on the edge,
+                        you're taking up too much space." – Premium track experiences for those who live for the limit.
                     </p>
-                    <div class="aspect-video bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
-                        <img src="/pure_ring_rentals_landing_page_2/screen.png" alt="Variant 2"
-                            class="w-full h-full object-cover">
+                    <div class="flex gap-4">
+                        <a class="size-10 border border-zinc-800 flex items-center justify-center hover:text-accent-cyan transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-lg">public</span>
+                        </a>
+                        <a class="size-10 border border-zinc-800 flex items-center justify-center hover:text-accent-cyan transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-lg">videocam</span>
+                        </a>
+                        <a class="size-10 border border-zinc-800 flex items-center justify-center hover:text-accent-cyan transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-lg">rss_feed</span>
+                        </a>
                     </div>
-                </a>
+                </div>
+                <div>
+                    <h5 class="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">Explore</h5>
+                    <ul class="space-y-4 text-sm text-zinc-500">
+                        <li><a class="hover:text-white transition-colors" href="#fleet">Fleet Details</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#track">Track Info</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Track Day Calendar</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Coaching</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">Support</h5>
+                    <ul class="space-y-4 text-sm text-zinc-500">
+                        <li><a class="hover:text-white transition-colors" href="#faq">Safety Rules</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#faq">Insurance Policy</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#faq">FAQ</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#faq">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 lg:col-span-1">
+                    <h5 class="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">Newsletter</h5>
+                    <div class="flex gap-2">
+                        <input
+                            class="bg-zinc-900 border-none text-white text-xs px-4 py-3 focus:ring-1 focus:ring-accent-cyan w-full rounded-sm"
+                            placeholder="Email Address" type="email" />
+                        <button
+                            class="bg-white text-black px-4 py-3 text-xs font-black uppercase rounded-sm hover:bg-accent-cyan transition-colors">Join</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-zinc-900 gap-6">
+                <p class="text-zinc-600 text-[10px] uppercase tracking-widest">© 2024 Pure Ring Rentals. Built for
+                    speed.</p>
+                <div class="flex gap-8">
+                    <a class="text-zinc-600 text-[10px] uppercase tracking-widest hover:text-white transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="text-zinc-600 text-[10px] uppercase tracking-widest hover:text-white transition-colors"
+                        href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <div>
-            <h3 class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-6 border-b border-zinc-800 pb-2">New
-                Fleet Concepts (WIP)</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <a href="/fleet/variant_1.html" class="card p-6 rounded-xl block relative overflow-hidden group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-xl font-bold mb-2 relative z-10">Fleet Variant 1: "The Grid"</h2>
-                    <p class="text-zinc-400 text-sm mb-4 relative z-10">Card-based tech layout. Functional, clean,
-                        info-dense. Best for comparing specs.</p>
-                    <div
-                        class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 flex items-center justify-center relative z-10">
-                        <span class="text-4xl">🏁</span>
-                    </div>
-                </a>
-
-                <a href="/fleet/variant_2.html" class="card p-6 rounded-xl block relative overflow-hidden group">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h2 class="text-xl font-bold mb-2 relative z-10">Fleet Variant 2: "Cinematic"</h2>
-                    <p class="text-zinc-400 text-sm mb-4 relative z-10">Immersive, full-screen scrolling experience.
-                        Emotional and high-impact.</p>
-                    <div
-                        class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 flex items-center justify-center relative z-10">
-                        <span class="text-4xl">🏎️</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="mt-16 text-center text-zinc-500 text-sm">
-            <p>Live development mode active. Any changes to the files will reflect instantly.</p>
-        </div>
-    </div>
 </body>
 
 </html>

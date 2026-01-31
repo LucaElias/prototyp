@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Ring Rentals - Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #00E0FF;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-8">
+    <div class="max-w-4xl w-full">
+        <h1 class="text-5xl font-black mb-12 text-center italic tracking-tighter">
+            <span class="text-[#00E0FF]">PURE</span> RING RENTALS
+        </h1>
+
+        <div class="mb-12">
+            <h3 class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-6 border-b border-zinc-800 pb-2">
+                Main Landing Pages</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <a href="/pure_ring_rentals_landing_page_1/code.html" class="card p-6 rounded-xl block">
+                    <h2 class="text-xl font-bold mb-2">Variant 1</h2>
+                    <p class="text-zinc-400 text-sm mb-4">Initial landing page design for Pure Ring Rentals.</p>
+                    <div class="aspect-video bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
+                        <img src="/pure_ring_rentals_landing_page_1/screen.png" alt="Variant 1"
+                            class="w-full h-full object-cover">
+                    </div>
+                </a>
+
+                <a href="/pure_ring_rentals_landing_page_2/code.html" class="card p-6 rounded-xl block">
+                    <h2 class="text-xl font-bold mb-2">Variant 2</h2>
+                    <p class="text-zinc-400 text-sm mb-4">Improved landing page design with more sections and details.
+                    </p>
+                    <div class="aspect-video bg-zinc-800 rounded-lg overflow-hidden border border-zinc-700">
+                        <img src="/pure_ring_rentals_landing_page_2/screen.png" alt="Variant 2"
+                            class="w-full h-full object-cover">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-6 border-b border-zinc-800 pb-2">New
+                Fleet Concepts (WIP)</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <a href="/fleet/variant_1.html" class="card p-6 rounded-xl block relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <h2 class="text-xl font-bold mb-2 relative z-10">Fleet Variant 1: "The Grid"</h2>
+                    <p class="text-zinc-400 text-sm mb-4 relative z-10">Card-based tech layout. Functional, clean,
+                        info-dense. Best for comparing specs.</p>
+                    <div
+                        class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 flex items-center justify-center relative z-10">
+                        <span class="text-4xl">🏁</span>
+                    </div>
+                </a>
+
+                <a href="/fleet/variant_2.html" class="card p-6 rounded-xl block relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <h2 class="text-xl font-bold mb-2 relative z-10">Fleet Variant 2: "Cinematic"</h2>
+                    <p class="text-zinc-400 text-sm mb-4 relative z-10">Immersive, full-screen scrolling experience.
+                        Emotional and high-impact.</p>
+                    <div
+                        class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 flex items-center justify-center relative z-10">
+                        <span class="text-4xl">🏎️</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center text-zinc-500 text-sm">
+            <p>Live development mode active. Any changes to the files will reflect instantly.</p>
+        </div>
+    </div>
+</body>
+
+</html>

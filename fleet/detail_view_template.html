@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pure Ring Rentals | Porsche GT4 RS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6a00ff",
+                        "accent-cyan": "#00E0FF",
+                        "accent-purple": "#5500FF",
+                        "race-red": "#E62E2E",
+                        "background-dark": "#050505",
+                        "card-dark": "#0A0A0A",
+                        "card-surface": "rgba(255, 255, 255, 0.03)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00E0FF 0%, #5500FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .featured-header {
+            background: linear-gradient(90deg, #00E0FF 0%, #5500FF 100%);
+        }
+
+        .reveal {
+            animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tech-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-[#050505] text-white font-sans antialiased selection:bg-[#00E0FF] selection:text-black">
+
+    <!-- Navbar -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
+        <div class="max-w-[1440px] w-full mx-auto flex items-center justify-between px-8">
+            <a href="../pure_ring_rentals_landing_page_2/code.html"
+                class="flex items-center gap-2 group transition-transform active:scale-95">
+                <span class="text-xl font-black italic tracking-tighter uppercase">Pure <span
+                        class="text-[#00E0FF]">Ring</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="../pure_ring_rentals_landing_page_2/code.html">Home</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="variant_1.html">Fleet</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="../pure_ring_rentals_landing_page_2/code.html#track">Track Info</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="../pure_ring_rentals_landing_page_2/code.html#faq">FAQ</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="../contact.html">Contact</a>
+            </div>
+            <div class="flex items-center gap-8">
+                <a href="variant_1.html"
+                    class="flex items-center gap-1.5 px-4 py-1.5 bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] transition-all hover:bg-white hover:text-black rounded-sm">
+                    Back X
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 min-h-screen flex flex-col">
+
+        <!-- HEADER & GALLERY SECTION (50/50 Split) -->
+        <section class="max-w-[1440px] w-full mx-auto px-8 mb-24 reveal">
+            <div class="mb-10">
+                <div class="flex items-center gap-3 mb-3 text-[#00E0FF]">
+                    <span
+                        class="px-2 py-0.5 bg-[#00E0FF]/10 border border-[#00E0FF]/25 text-[8px] font-black uppercase tracking-widest rounded-sm">Premium
+                        Spec</span>
+                    <span class="text-[8px] font-black uppercase tracking-widest text-zinc-600">Pure Ring Rentals
+                        Nürburg</span>
+                </div>
+                <h1
+                    class="text-6xl md:text-7xl font-display font-black italic uppercase tracking-tighter leading-[0.75]">
+                    Porsche <span class="gradient-text">GT4 RS</span>
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start border-t border-white/5 pt-10">
+
+                <!-- Gallery Block (50%) -->
+                <div class="relative group aspect-[4/3] bg-zinc-900 overflow-hidden rounded-xl border border-white/5">
+                    <div id="gallery-container"
+                        class="w-full h-full overflow-x-auto no-scrollbar snap-x snap-mandatory flex scroll-smooth">
+                        <div
+                            class="snap-center min-w-full h-full flex items-center justify-center p-8 bg-gradient-to-br from-[#111] to-black">
+                            <img src="images/cayman_gt4.png" class="h-full object-contain drop-shadow-2xl" alt="Front">
+                        </div>
+                        <div
+                            class="snap-center min-w-full h-full flex items-center justify-center p-8 bg-gradient-to-br from-[#0a0a0a] to-[#151515]">
+                            <img src="images/cayman_gt4.png" class="h-full object-contain drop-shadow-2xl scale-x-[-1]"
+                                alt="Side">
+                        </div>
+                        <div
+                            class="snap-center min-w-full h-full flex items-center justify-center p-8 bg-gradient-to-br from-[#111] to-black text-center">
+                            <div class="space-y-4">
+                                <span class="material-symbols-outlined text-5xl text-zinc-800">photo_camera</span>
+                                <p class="text-zinc-600 font-bold uppercase tracking-widest text-[10px]">Gallery
+                                    Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <button
+                        onclick="document.getElementById('gallery-container').scrollBy({left: -this.parentElement.offsetWidth, behavior: 'smooth'})"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 size-10 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:text-black">
+                        <span class="material-symbols-outlined text-sm">chevron_left</span>
+                    </button>
+                    <button
+                        onclick="document.getElementById('gallery-container').scrollBy({left: this.parentElement.offsetWidth, behavior: 'smooth'})"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 size-10 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-white hover:text-black">
+                        <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </button>
+                </div>
+
+                <!-- Facts & Description (50%) -->
+                <div class="space-y-8">
+                    <!-- Textblock Main -->
+                    <div class="space-y-5">
+                        <h3 class="text-xs font-black uppercase tracking-[0.3em] text-[#00E0FF]">Machine Philosophy</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed font-medium">
+                            The Porsche Cayman GT4 RS represents the absolute peak of atmospheric mid-engine
+                            engineering. By shoehorning the 9,000 RPM heart of the 911 GT3 into the compact chassis,
+                            Porsche has created a car that rewards precision and punishes hesitation.
+                        </p>
+                        <p class="text-zinc-500 text-sm leading-relaxed italic">
+                            Our specific unit is enhanced with the Manthey Racing KW V4 suspension kit, dialed in for
+                            the compressions of the Nordschleife. Rolling on Michelin Pilot Sport Cup 2 R rubber and
+                            Endless MA45B endurance pads, this machine is a laboratory for automotive excellence.
+                        </p>
+                    </div>
+
+                    <!-- Tech Grid Compact -->
+                    <div class="grid grid-cols-2 gap-3 pb-8 border-b border-white/5">
+                        <div class="bg-white/[0.03] p-4 rounded-lg flex items-center gap-4">
+                            <span class="material-symbols-outlined text-[#00E0FF] text-xl">stat_0</span>
+                            <div class="leading-none"><span
+                                    class="block text-[8px] text-zinc-500 uppercase font-black mb-1">Engine</span><span
+                                    class="text-xs font-black">4.0L NA</span></div>
+                        </div>
+                        <div class="bg-white/[0.03] p-4 rounded-lg flex items-center gap-4">
+                            <span class="material-symbols-outlined text-[#00E0FF] text-xl">speed</span>
+                            <div class="leading-none"><span
+                                    class="block text-[8px] text-zinc-500 uppercase font-black mb-1">Power</span><span
+                                    class="text-xs font-black">500 PS</span></div>
+                        </div>
+                        <div class="bg-white/[0.03] p-4 rounded-lg flex items-center gap-4">
+                            <span class="material-symbols-outlined text-[#00E0FF] text-xl">weight</span>
+                            <div class="leading-none"><span
+                                    class="block text-[8px] text-zinc-500 uppercase font-black mb-1">Weight</span><span
+                                    class="text-xs font-black">1420kg</span></div>
+                        </div>
+                        <div class="bg-white/[0.03] p-4 rounded-lg flex items-center gap-4">
+                            <span class="material-symbols-outlined text-[#00E0FF] text-xl">forklift</span>
+                            <div class="leading-none"><span
+                                    class="block text-[8px] text-zinc-500 uppercase font-black mb-1">Drive</span><span
+                                    class="text-xs font-black">PDK / RWD</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Setup Notes -->
+                    <div
+                        class="flex items-start gap-4 p-4 bg-[#00E0FF]/5 rounded-lg border border-[#00E0FF]/10 text-[11px] font-bold text-zinc-400">
+                        <span class="material-symbols-outlined text-[#00E0FF]">warning</span>
+                        Qualified drivers only. Extreme track spec for competitive performance.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING & BOOKING (Condensed White Section) -->
+        <section class="bg-white py-20 text-zinc-900 w-full relative">
+            <div class="max-w-[1440px] mx-auto px-8">
+
+                <div class="flex flex-col md:flex-row items-end justify-between gap-8 mb-12">
+                    <div class="max-w-xl">
+                        <div class="text-[#00E0FF] text-[9px] font-black uppercase tracking-[0.4em] mb-3">Rental Options
+                        </div>
+                        <h2
+                            class="text-5xl font-display font-black italic uppercase tracking-tighter leading-none mb-4">
+                            Ride <span class="gradient-text">Packages</span>
+                        </h2>
+                        <p class="text-zinc-500 text-sm font-medium leading-relaxed">
+                            Full Arrive & Drive service. Consumables, fuel and entrance fees included in all packages.
+                        </p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span
+                            class="px-3 py-1 bg-zinc-100 rounded-sm text-[8px] font-black uppercase text-zinc-500">Tickets
+                            Incl.</span>
+                        <span
+                            class="px-3 py-1 bg-zinc-100 rounded-sm text-[8px] font-black uppercase text-zinc-500">Fuel
+                            Incl.</span>
+                    </div>
+                </div>
+
+                <!-- Pricing Rows (Grid style but more compact) -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-16">
+
+                    <!-- 2 Laps -->
+                    <div
+                        class="group bg-white border border-zinc-100 p-6 rounded-xl hover:border-[#00E0FF]/50 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="text-[8px] text-zinc-400 font-black uppercase tracking-widest mb-6">2 Laps</div>
+                            <div class="text-3xl font-display font-black tracking-tighter mb-1">320€</div>
+                            <p class="text-[8px] text-zinc-400 font-bold uppercase">160€ / Lap</p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-50">
+                            <div class="text-[8px] text-zinc-400 font-bold uppercase mb-1">Inclusive:</div>
+                            <div class="text-xl font-black">410€</div>
+                        </div>
+                    </div>
+
+                    <!-- 4 Laps (Featured - Condensed) -->
+                    <div
+                        class="relative group bg-zinc-900 text-white p-6 rounded-xl shadow-xl transition-all flex flex-col justify-between overflow-hidden">
+                        <div class="absolute top-0 right-0 p-3">
+                            <span
+                                class="px-2 py-0.5 bg-[#00E0FF] text-black text-[7px] font-black uppercase tracking-widest rounded-sm italic">POPULAR</span>
+                        </div>
+                        <div>
+                            <div class="text-[8px] text-[#00E0FF] font-black uppercase tracking-widest mb-6">4 Laps
+                                Master</div>
+                            <div class="text-4xl font-display font-black tracking-tighter mb-1 select-none">600€</div>
+                            <p class="text-[8px] text-zinc-500 font-bold uppercase">150€ / Lap</p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <div class="text-[8px] text-[#00E0FF] font-black uppercase mb-1">Inclusive:</div>
+                            <div class="text-3xl font-black italic tracking-tighter gradient-text leading-none">780€
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 Laps -->
+                    <div
+                        class="group bg-white border border-zinc-100 p-6 rounded-xl hover:border-[#00E0FF]/50 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="text-[8px] text-zinc-400 font-black uppercase tracking-widest mb-6">6 Laps</div>
+                            <div class="text-3xl font-display font-black tracking-tighter mb-1">840€</div>
+                            <p class="text-[8px] text-zinc-400 font-bold uppercase">140€ / Lap</p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-50">
+                            <div class="text-[8px] text-zinc-400 font-bold uppercase mb-1">Inclusive:</div>
+                            <div class="text-xl font-black">1.100€</div>
+                        </div>
+                    </div>
+
+                    <!-- 8 Laps -->
+                    <div
+                        class="group bg-white border border-zinc-100 p-6 rounded-xl hover:border-[#00E0FF]/50 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="text-[8px] text-zinc-400 font-black uppercase tracking-widest mb-6">8 Laps</div>
+                            <div class="text-3xl font-display font-black tracking-tighter mb-1">1.040€</div>
+                            <p class="text-[8px] text-zinc-400 font-bold uppercase">130€ / Lap</p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-50">
+                            <div class="text-[8px] text-zinc-400 font-bold uppercase mb-1">Inclusive:</div>
+                            <div class="text-xl font-black">1.360€</div>
+                        </div>
+                    </div>
+
+                    <!-- 10 Laps -->
+                    <div
+                        class="group bg-white border border-zinc-100 p-6 rounded-xl hover:border-[#00E0FF]/50 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="text-[8px] text-zinc-400 font-black uppercase tracking-widest mb-6">10 Laps
+                            </div>
+                            <div class="text-3xl font-display font-black tracking-tighter mb-1">1.200€</div>
+                            <p class="text-[8px] text-zinc-400 font-bold uppercase">120€ / Lap</p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-zinc-50">
+                            <div class="text-[8px] text-zinc-400 font-bold uppercase mb-1">Inclusive:</div>
+                            <div class="text-xl font-black">1.600€</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer CTA (Compact) -->
+                <div
+                    class="bg-zinc-50 rounded-xl border border-zinc-100 p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                    <div class="flex items-center gap-10">
+                        <div class="space-y-1">
+                            <span
+                                class="text-[8px] font-black uppercase text-zinc-400 tracking-widest">Instructor</span>
+                            <div class="text-2xl font-display font-black tracking-tighter">50€ <span
+                                    class="text-[9px] font-bold text-zinc-400 uppercase">/ Lap</span></div>
+                        </div>
+                        <div class="w-px h-10 bg-zinc-200"></div>
+                        <div class="space-y-1">
+                            <span class="text-[8px] font-black uppercase text-zinc-400 tracking-widest">Excess</span>
+                            <div class="text-2xl font-display font-black tracking-tighter">12.500€</div>
+                        </div>
+                    </div>
+                    <button
+                        class="bg-zinc-900 px-10 py-5 text-white hover:bg-[#00E0FF] hover:text-black text-[11px] font-black uppercase tracking-[0.3em] transition-all transform active:scale-95 cursor-pointer rounded-sm">
+                        Secure Booking Selection
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-16 px-8 max-w-[1440px] w-full mx-auto border-t border-white/5">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <a href="../pure_ring_rentals_landing_page_2/code.html"
+                    class="text-lg font-black italic uppercase tracking-tighter">Pure <span
+                        class="text-[#00E0FF]">Ring</span></a>
+                <div class="flex gap-8 text-[8px] font-bold uppercase tracking-widest text-zinc-600">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Security</a>
+                </div>
+                <div class="text-[8px] font-bold uppercase text-zinc-700 tracking-widest">
+                    © 2026 Pure Ring Rentals
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

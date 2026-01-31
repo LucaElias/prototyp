@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pure Ring Rentals | Fleet Collection</title>
+    <!-- Use direct script tag for Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6a00ff",
+                        "accent-cyan": "#00E0FF",
+                        "accent-purple": "#5500FF",
+                        "background-dark": "#050505",
+                        "card-dark": "#0A0A0A",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-nav {
+                background: rgba(5, 5, 5, 0.8);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            }
+            .gradient-text {
+                background: linear-gradient(90deg, #00E0FF 0%, #5500FF 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .text-outline {
+                -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+                color: transparent;
+            }
+            .bg-grid-white {
+                background-image: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 1px);
+                background-size: 40px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-dark text-white font-display antialiased selection:bg-accent-cyan selection:text-black overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between px-8 py-5">
+            <a href="/" class="flex items-center gap-2 group">
+                <span class="text-2xl font-black italic tracking-tighter uppercase whitespace-nowrap">Pure <span
+                        class="text-accent-cyan group-hover:text-white transition-colors">Ring</span></span>
+            </a>
+
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex gap-4 items-center bg-white/5 p-1 rounded-full border border-white/10">
+                    <a href="variant_1.html"
+                        class="text-[9px] font-black uppercase tracking-[0.2em] px-4 py-2 text-zinc-500 hover:text-white transition-colors">List</a>
+                    <a href="variant_2.html"
+                        class="text-[9px] font-black uppercase tracking-[0.2em] px-4 py-2 bg-white text-black rounded-full">Cinematic</a>
+                </div>
+                <button
+                    class="px-8 py-2.5 bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-zinc-200 transition-colors rounded-sm">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="relative pt-48 pb-24 overflow-hidden bg-grid-white">
+        <div class="max-w-[1400px] mx-auto px-8 relative z-10">
+            <h1 class="text-[clamp(3rem,8vw,6rem)] font-black italic uppercase leading-[0.85] tracking-tighter mb-8">
+                The<br><span class="gradient-text">Collection.</span>
+            </h1>
+            <p class="text-zinc-500 text-lg md:text-xl font-light font-sans max-w-xl leading-relaxed">
+                Hand-picked, track-optimized machines. Every build is engineered for maximum engagement and relentless
+                performance on the Nordschleife.
+            </p>
+        </div>
+        <div
+            class="absolute -bottom-10 right-0 text-[20vw] font-black italic uppercase text-outline pointer-events-none select-none">
+            GRID
+        </div>
+    </header>
+
+    <main id="fleet">
+
+        <!-- SECTION 01: BMW M2 COMP -->
+        <section class="min-h-screen relative flex items-center py-20 border-t border-white/5 group">
+            <div class="absolute inset-0 z-0">
+                <img src="images/blue_m2.png" alt="BMW M2"
+                    class="w-full h-full object-cover object-center opacity-10 filter grayscale brightness-50 contrast-125 transition-all duration-1000 group-hover:opacity-20 group-hover:grayscale-0">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent">
+                </div>
+            </div>
+
+            <div class="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-12 order-2 lg:order-1">
+                        <div>
+                            <span
+                                class="font-mono text-zinc-600 text-[10px] tracking-widest mb-4 block uppercase border-l border-accent-cyan pl-4">Model
+                                Ref / 01</span>
+                            <h2
+                                class="text-6xl md:text-8xl font-black italic uppercase leading-[0.85] tracking-tighter">
+                                BMW M2<br><span class="text-accent-cyan">Comp</span>
+                            </h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 border-y border-white/5 py-10">
+                            <!-- Engine -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-cyan">stat_0</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Engine</span>
+                                    <span class="text-sm font-bold text-zinc-200">3.0L Bi-Turbo, 410 HP</span>
+                                </div>
+                            </div>
+                            <!-- Gearbox -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-accent-cyan">settings_input_component</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Gearbox</span>
+                                    <span class="text-sm font-bold text-zinc-200">7-Speed M-DCT</span>
+                                </div>
+                            </div>
+                            <!-- Power -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-cyan">speed</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Power</span>
+                                    <span class="text-sm font-bold text-zinc-200">410 HP</span>
+                                </div>
+                            </div>
+                            <!-- Weight -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-cyan">weight</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Weight</span>
+                                    <span class="text-sm font-bold text-zinc-200">1550 kg</span>
+                                </div>
+                            </div>
+                            <!-- Drive -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-cyan">forklift</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Drive</span>
+                                    <span class="text-sm font-bold text-zinc-200">RWD</span>
+                                </div>
+                            </div>
+                            <!-- Seats -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-accent-cyan">airline_seat_recline_extra</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Seats</span>
+                                    <span class="text-sm font-bold text-zinc-200">2 Seats</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-8 pt-4">
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 mb-1">From</span>
+                                <span class="text-4xl font-black italic tracking-tighter">75€ <span
+                                        class="text-sm font-normal not-italic text-zinc-500">/ Lap</span></span>
+                            </div>
+                            <button
+                                class="px-12 py-5 bg-white text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-accent-cyan transition-all rounded-sm flex items-center gap-3 group/btn">
+                                Reserve
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                        <img src="images/blue_m2.png" alt="BMW M2"
+                            class="w-full max-w-2xl drop-shadow-[0_20px_60px_rgba(0,224,255,0.15)] group-hover:scale-105 transition-transform duration-1000">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 02: CAYMAN GT4 -->
+        <section class="min-h-screen relative flex items-center py-20 bg-card-dark border-t border-white/5 group">
+            <div class="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="flex justify-center lg:justify-start">
+                        <img src="images/cayman_gt4.png" alt="Cayman GT4"
+                            class="w-full max-w-2xl drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-1000">
+                    </div>
+
+                    <div class="space-y-12">
+                        <div>
+                            <span
+                                class="font-mono text-zinc-600 text-[10px] tracking-widest mb-4 block uppercase border-l border-white pl-4">Model
+                                Ref / 02</span>
+                            <h2
+                                class="text-6xl md:text-8xl font-black italic uppercase leading-[0.85] tracking-tighter text-right lg:text-left text-white">
+                                Porsche<br><span class="text-zinc-500">GT4 RS</span>
+                            </h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 border-y border-white/5 py-10">
+                            <!-- Engine -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-white">stat_0</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Engine</span>
+                                    <span class="text-sm font-bold text-zinc-200">4.0L Boxer NA, 420 HP</span>
+                                </div>
+                            </div>
+                            <!-- Gearbox -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-white">settings_input_component</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Gearbox</span>
+                                    <span class="text-sm font-bold text-zinc-200">PDK Performance</span>
+                                </div>
+                            </div>
+                            <!-- Power -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-white">speed</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Power</span>
+                                    <span class="text-sm font-bold text-zinc-200">420 HP</span>
+                                </div>
+                            </div>
+                            <!-- Weight -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-white">weight</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Weight</span>
+                                    <span class="text-sm font-bold text-zinc-200">1420 kg</span>
+                                </div>
+                            </div>
+                            <!-- Drive -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-white">forklift</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Drive</span>
+                                    <span class="text-sm font-bold text-zinc-200">RWD</span>
+                                </div>
+                            </div>
+                            <!-- Seats -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-white">airline_seat_recline_extra</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Seats</span>
+                                    <span class="text-sm font-bold text-zinc-200">2 Seats</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-end lg:justify-start gap-8 pt-4">
+                            <div class="flex flex-col text-right lg:text-left">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 mb-1">From</span>
+                                <span class="text-4xl font-black italic tracking-tighter">145€ <span
+                                        class="text-sm font-normal not-italic text-zinc-500">/ Lap</span></span>
+                            </div>
+                            <button
+                                class="px-12 py-5 bg-white text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-zinc-200 transition-all rounded-sm flex items-center gap-3 group/btn">
+                                Reserve
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 03: BMW 120i -->
+        <section class="min-h-screen relative flex items-center py-20 border-t border-white/5 group">
+            <div class="max-w-[1400px] mx-auto px-8 relative z-10 w-full">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-12 order-2 lg:order-1">
+                        <div>
+                            <span
+                                class="font-mono text-zinc-600 text-[10px] tracking-widest mb-4 block uppercase border-l border-accent-purple pl-4">Model
+                                Ref / 03</span>
+                            <h2
+                                class="text-6xl md:text-8xl font-black italic uppercase leading-[0.85] tracking-tighter">
+                                BMW 120i<br><span class="text-accent-purple">Cup</span>
+                            </h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 border-y border-white/5 py-10">
+                            <!-- Engine -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-purple">stat_0</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Engine</span>
+                                    <span class="text-sm font-bold text-zinc-200">2.0L Turbo, 350 HP</span>
+                                </div>
+                            </div>
+                            <!-- Gearbox -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-accent-purple">settings_input_component</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Gearbox</span>
+                                    <span class="text-sm font-bold text-zinc-200">Manual Spec</span>
+                                </div>
+                            </div>
+                            <!-- Power -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-purple">speed</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Power</span>
+                                    <span class="text-sm font-bold text-zinc-200">350 HP</span>
+                                </div>
+                            </div>
+                            <!-- Weight -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-purple">weight</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Weight</span>
+                                    <span class="text-sm font-bold text-zinc-200">1180 kg</span>
+                                </div>
+                            </div>
+                            <!-- Drive -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-2xl text-accent-purple">forklift</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Drive</span>
+                                    <span class="text-sm font-bold text-zinc-200">RWD</span>
+                                </div>
+                            </div>
+                            <!-- Seats -->
+                            <div class="flex items-center gap-4 text-zinc-400 group-hover:text-white transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-accent-purple">airline_seat_recline_extra</span>
+                                <div class="flex flex-col">
+                                    <span
+                                        class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Seats</span>
+                                    <span class="text-sm font-bold text-zinc-200">2 Seats</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-8 pt-4">
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 mb-1">From</span>
+                                <span class="text-4xl font-black italic tracking-tighter">45€ <span
+                                        class="text-sm font-normal not-italic text-zinc-500">/ Lap</span></span>
+                            </div>
+                            <button
+                                class="px-12 py-5 bg-accent-purple text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#4400cc] transition-all rounded-sm flex items-center gap-3 group/btn">
+                                Reserve
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">east</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 flex justify-center lg:justify-end overflow-hidden max-h-[400px]">
+                        <img src="images/bmw_120.png" alt="BMW 120i"
+                            class="w-full max-w-2xl drop-shadow-[0_20px_60px_rgba(85,0,255,0.15)] scale-[1.5] translate-y-8 group-hover:scale-[1.6] transition-transform duration-1000">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background-dark py-20 px-8 border-t border-white/5">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <span class="text-2xl font-black italic tracking-tighter uppercase">Pure <span
+                    class="text-accent-cyan">Ring</span></span>
+            <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest">© 2026 Pure Ring Rentals</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

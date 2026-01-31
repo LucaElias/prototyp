@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pure Ring Rentals | Contact</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6a00ff",
+                        "accent-cyan": "#00E0FF",
+                        "accent-purple": "#5500FF",
+                        "race-red": "#E62E2E",
+                        "background-dark": "#050505",
+                        "card-dark": "#0A0A0A",
+                        "card-surface": "rgba(255, 255, 255, 0.03)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #00E0FF 0%, #5500FF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rotating-text-wrapper {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .reveal {
+            animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#050505] text-white font-sans antialiased selection:bg-[#00E0FF] selection:text-black">
+
+    <!-- Global Standard Nav -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 h-20 flex items-center">
+        <div class="max-w-[1440px] w-full mx-auto flex items-center justify-between px-8">
+            <a href="pure_ring_rentals_landing_page_2/code.html"
+                class="flex items-center gap-2 group transition-transform active:scale-95">
+                <span class="text-xl font-black italic tracking-tighter uppercase">Pure <span
+                        class="text-[#00E0FF]">Ring</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="pure_ring_rentals_landing_page_2/code.html">Home</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="fleet/variant_1.html">Fleet</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="pure_ring_rentals_landing_page_2/code.html#track">Track Info</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-zinc-400 hover:text-white transition-colors uppercase py-1"
+                    href="pure_ring_rentals_landing_page_2/code.html#faq">FAQ</a>
+                <a class="text-[10px] font-black tracking-[0.2em] text-white transition-colors uppercase border-b-2 border-accent-cyan py-1"
+                    href="contact.html">Contact</a>
+            </div>
+            <div class="flex items-center gap-8">
+                <!-- No back button needed on main contact page, or maybe standard CTA -->
+                <a href="fleet/variant_1.html"
+                    class="px-6 py-2.5 bg-accent-cyan text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white transition-colors rounded-sm shadow-[0_0_15px_rgba(0,224,255,0.3)]">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 min-h-screen relative overflow-hidden">
+
+        <!-- Background Elements -->
+        <div
+            class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#00E0FF]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#5500FF]/5 rounded-full blur-[100px] pointer-events-none translate-y-1/2 -translate-x-1/4">
+        </div>
+
+        <div class="max-w-[1440px] w-full mx-auto px-8 relative z-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+                <!-- Left Column: Typography & Info (Oriented on Image) -->
+                <div class="reveal">
+                    <div class="mb-4">
+                        <span class="text-[10px] font-black uppercase tracking-[0.4em] text-[#00E0FF]">Get in
+                            Touch</span>
+                    </div>
+
+                    <h1 class="text-6xl md:text-7xl font-display font-black leading-[1.1] mb-12 tracking-tight">
+                        Have a question,<br>
+                        an idea or a<br>
+                        <span class="gradient-text italic">Project?</span><br>
+                        Contact us!
+                    </h1>
+
+                    <!-- Buttons/Pills Area -->
+                    <div class="flex flex-wrap gap-4 mb-20">
+                        <a href="mailto:drive@purering.com"
+                            class="px-8 py-4 bg-[#00E0FF] hover:bg-white text-black font-bold rounded-full transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            drive@purering.com
+                        </a>
+                        <a href="tel:+49123456789"
+                            class="px-8 py-4 bg-[#222] hover:bg-[#333] border border-white/10 text-white font-bold rounded-full transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">call</span>
+                            +49 (0) 2691 123456
+                        </a>
+                    </div>
+
+                    <!-- Circular Badge Interaction (Bottom Right of Left Col commonly) -->
+
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="bg-white text-black p-10 rounded-3xl reveal shadow-2xl" style="animation-delay: 0.2s;">
+                    <form class="space-y-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-zinc-800 ml-1">Your
+                                    Name</label>
+                                <input type="text" placeholder="John Doe"
+                                    class="w-full bg-zinc-100 border border-zinc-300 rounded-xl px-4 py-4 text-black placeholder-zinc-500 focus:border-[#00E0FF] focus:ring-1 focus:ring-[#00E0FF] focus:bg-white transition-all outline-none font-bold">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase tracking-widest text-zinc-800 ml-1">Email
+                                    Address</label>
+                                <input type="email" placeholder="john@example.com"
+                                    class="w-full bg-zinc-100 border border-zinc-300 rounded-xl px-4 py-4 text-black placeholder-zinc-500 focus:border-[#00E0FF] focus:ring-1 focus:ring-[#00E0FF] focus:bg-white transition-all outline-none font-bold">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-zinc-800 ml-1">Select
+                                Topic</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="topic" class="peer sr-only">
+                                    <div
+                                        class="px-4 py-3 bg-zinc-100 border border-zinc-300 rounded-lg text-xs font-bold text-center text-zinc-600 peer-checked:bg-[#00E0FF] peer-checked:text-black peer-checked:border-[#00E0FF] transition-all hover:bg-zinc-200">
+                                        Rental</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="topic" class="peer sr-only">
+                                    <div
+                                        class="px-4 py-3 bg-zinc-100 border border-zinc-300 rounded-lg text-xs font-bold text-center text-zinc-600 peer-checked:bg-[#00E0FF] peer-checked:text-black peer-checked:border-[#00E0FF] transition-all hover:bg-zinc-200">
+                                        Coaching</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="topic" class="peer sr-only">
+                                    <div
+                                        class="px-4 py-3 bg-zinc-100 border border-zinc-300 rounded-lg text-xs font-bold text-center text-zinc-600 peer-checked:bg-[#00E0FF] peer-checked:text-black peer-checked:border-[#00E0FF] transition-all hover:bg-zinc-200">
+                                        Event</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="topic" class="peer sr-only">
+                                    <div
+                                        class="px-4 py-3 bg-zinc-100 border border-zinc-300 rounded-lg text-xs font-bold text-center text-zinc-600 peer-checked:bg-[#00E0FF] peer-checked:text-black peer-checked:border-[#00E0FF] transition-all hover:bg-zinc-200">
+                                        Other</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-zinc-800 ml-1">Your
+                                Message</label>
+                            <textarea rows="4" placeholder="How can we help you get on track?"
+                                class="w-full bg-zinc-100 border border-zinc-300 rounded-xl px-4 py-4 text-black placeholder-zinc-500 focus:border-[#00E0FF] focus:ring-1 focus:ring-[#00E0FF] focus:bg-white transition-all outline-none resize-none font-bold"></textarea>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit"
+                                class="w-full py-5 bg-black hover:bg-[#00E0FF] text-white hover:text-black text-xs font-black uppercase tracking-[0.3em] rounded-xl transition-all shadow-lg hover:shadow-[#00E0FF]/25 transform active:scale-[0.98]">
+                                Send Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-24 pb-12 px-8 max-w-[1440px] w-full mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 border-t border-white/5 pt-12">
+            <a href="pure_ring_rentals_landing_page_2/code.html" class="flex items-center gap-2">
+                <span class="text-xl font-black italic tracking-tighter uppercase">Pure <span
+                        class="text-[#00E0FF]">Ring</span></span>
+            </a>
+            <div class="flex gap-12 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-white transition-colors">Imprint</a>
+            </div>
+            <div class="text-[10px] font-bold uppercase text-zinc-700 tracking-tighter italic">
+                © 2026 Pure Ring Rentals
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

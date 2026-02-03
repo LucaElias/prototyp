@@ -98,29 +98,31 @@
                 stroke-width: 8;
                 stroke-linecap: round;
                 stroke-linejoin: round;
-                /* Muster: 40px Strich, 3500px Lücke */
-                stroke-dasharray: 40, 3500; 
+                /* Muster: 40px Strich, >3211px Lücke */
+                stroke-dasharray: 40, 3300; 
                 stroke-dashoffset: 0;
                 filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
                 animation: loopTrack 10s linear infinite;
             }
             @keyframes loopTrack {
-                0% { stroke-dashoffset: 3250; }
-                100% { stroke-dashoffset: 6800; }
+                0% { stroke-dashoffset: 0; }
+                100% { stroke-dashoffset: 3211; }
             }
-            /* Startpunkt-Wellen Animation */
+            /* Startpunkt-Wellen Animation - Synchronisiert auf 10s */
             .track-start-ripple {
                 fill: #ffffff;
                 opacity: 0;
                 transform-origin: center;
-                animation: rippleEffect 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+                animation: rippleEffect 10s cubic-bezier(0, 0.2, 0.8, 1) infinite;
             }
             .track-start-ripple-delay {
-                animation-delay: 1s;
+                animation-delay: 0.5s; /* Kurze Verzögerung für die zweite Welle */
             }
             @keyframes rippleEffect {
-                0% { transform: scale(0); opacity: 0.8; }
-                100% { transform: scale(4); opacity: 0; }
+                0% { transform: scale(0); opacity: 0; }
+                1% { transform: scale(0); opacity: 0.8; }
+                15% { transform: scale(6); opacity: 0; }
+                100% { transform: scale(6); opacity: 0; }
             }
             .no-scrollbar::-webkit-scrollbar {
                 display: none;

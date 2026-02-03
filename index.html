@@ -98,15 +98,15 @@
                 stroke-width: 8;
                 stroke-linecap: round;
                 stroke-linejoin: round;
-                /* Muster: 80px Strich, 3500px Lücke */
-                stroke-dasharray: 80, 3500; 
-                stroke-dashoffset: 3500;
+                /* Muster: 40px Strich, 3500px Lücke */
+                stroke-dasharray: 40, 3500; 
+                stroke-dashoffset: 0;
                 filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
-                animation: loopTrack 12s linear infinite;
+                animation: loopTrack 10s linear infinite;
             }
             @keyframes loopTrack {
-                0% { stroke-dashoffset: 3580; }
-                100% { stroke-dashoffset: 0; }
+                0% { stroke-dashoffset: 0; }
+                100% { stroke-dashoffset: 3550; }
             }
             .no-scrollbar::-webkit-scrollbar {
                 display: none;

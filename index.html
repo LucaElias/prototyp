@@ -108,6 +108,20 @@
                 0% { stroke-dashoffset: 3250; }
                 100% { stroke-dashoffset: 6800; }
             }
+            /* Startpunkt-Wellen Animation */
+            .track-start-ripple {
+                fill: #ffffff;
+                opacity: 0;
+                transform-origin: center;
+                animation: rippleEffect 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+            }
+            .track-start-ripple-delay {
+                animation-delay: 1s;
+            }
+            @keyframes rippleEffect {
+                0% { transform: scale(0); opacity: 0.8; }
+                100% { transform: scale(4); opacity: 0; }
+            }
             .no-scrollbar::-webkit-scrollbar {
                 display: none;
             }
@@ -408,6 +422,13 @@
                         <use href="#nurburgring-path" class="track-base" />
                         <use href="#nurburgring-path" class="track-accent" />
                         <use href="#nurburgring-path" class="track-runner" />
+
+                        <!-- Startpunkt Wellen -->
+                        <g transform="translate(213.85, 685.23)">
+                            <circle cx="0" cy="0" r="5" class="track-start-ripple" />
+                            <circle cx="0" cy="0" r="5" class="track-start-ripple track-start-ripple-delay" />
+                            <circle cx="0" cy="0" r="2" fill="white" />
+                        </g>
                     </svg>
                 </div>
             </div>
